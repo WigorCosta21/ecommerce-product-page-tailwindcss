@@ -14,11 +14,12 @@ export interface ICartContext {
   cart: ICartProps[];
   cartAmount: number;
   total: string;
-  addToCart: (newItem: IProduct) => void;
   quantity: number;
+  isOpenCart: boolean;
+  addToCart: (newItem: IProduct) => void;
+  handleDeleteCart: (newItem: ICartProps) => void;
   handleIncrement: () => void;
   handleDecrement: () => void;
-  isOpenCart: boolean;
   handleOpenCart: () => void;
   handleCloseCart: () => void;
 }
@@ -88,17 +89,25 @@ export const CartProvider = ({ children }: ICartProvider) => {
 
   const handleCloseCart = () => setIsOpenCart(false);
 
+  const handleDeleteCart = (newItem: ICartProps) => {
+    const removeItem = cart.filter((item) => item.id !== newItem.id);
+
+    setCart(removeItem);
+    totalCart(removeItem);
+  };
+
   return (
     <CartContext.Provider
       value={{
         cart,
         cartAmount: cart.length,
-        addToCart,
         quantity,
-        handleDecrement,
-        handleIncrement,
         total,
         isOpenCart,
+        addToCart,
+        handleDeleteCart,
+        handleDecrement,
+        handleIncrement,
         handleCloseCart,
         handleOpenCart,
       }}

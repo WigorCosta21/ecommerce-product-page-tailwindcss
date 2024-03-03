@@ -4,10 +4,17 @@ import IconPlus from "../../assets/images/icon-plus.svg";
 import { useCart } from "../../hooks/useCart";
 
 export const ProductAction = ({ data }: IProductData) => {
-  const { addToCart, quantity, handleDecrement, handleIncrement } = useCart();
+  const {
+    addToCart,
+    quantity,
+    handleDecrement,
+    handleIncrement,
+    handleOpenCart,
+  } = useCart();
 
   const handleAddToCart = (item: IProduct) => {
     addToCart(item);
+    handleOpenCart();
   };
 
   return (
