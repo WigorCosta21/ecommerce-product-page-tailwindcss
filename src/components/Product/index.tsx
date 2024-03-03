@@ -11,7 +11,7 @@ export const Product = ({ data }: IProductData) => {
         </div>
         <div>
           <ProductInfo data={data} />
-          <ProductAction />
+          <ProductAction data={data} />
         </div>
       </div>
     </div>
