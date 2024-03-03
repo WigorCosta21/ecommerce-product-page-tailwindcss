@@ -3,10 +3,11 @@ import { Menu } from "../Menu";
 import Avatar from "../../assets/images/image-avatar.png";
 import IconCart from "../../assets/images/icon-cart.svg";
 import Logo from "../../assets/images/logo.svg";
+import { Cart } from "../Cart";
 
 export const Header = () => {
   return (
-    <header className="max-w-5xl w-full mx-auto">
+    <header className="relative max-w-5xl w-full mx-auto">
       <div className="w-full flex justify-between items-center pt-10 pb-12 border-b border-custom-gray-light/20">
         <div className="flex items-center gap-12">
           <div>
@@ -31,6 +32,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
+      <Cart />
     </header>
   );
 };

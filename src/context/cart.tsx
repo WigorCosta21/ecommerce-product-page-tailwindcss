@@ -46,7 +46,7 @@ export const CartProvider = ({ children }: ICartProvider) => {
     if (indexItem !== -1) {
       let cartList = cart;
 
-      cartList[indexItem].amount = cart[indexItem].amount + 1;
+      cartList[indexItem].amount += quantity;
       cartList[indexItem].total =
         cartList[indexItem].amount * cart[indexItem].price;
 
