@@ -9,6 +9,12 @@ export const Cart = () => {
       <h3 className="px-6 font-bold">Cart</h3>
       <div className="w-full h-px my-7 bg-custom-gray-light/10"></div>
 
+      {cart.length === 0 && (
+        <p className="flex justify-center mt-16 font-bold text-custom-gray-light">
+          Your cart is empty
+        </p>
+      )}
+
       {cart.map((item) => (
         <div key={item.id} className="flex items-center gap-4 pb-6 px-6">
           <div>
@@ -34,11 +40,13 @@ export const Cart = () => {
         </div>
       ))}
 
-      <div className="px-6">
-        <button className="bg-custom-primary w-full text-white font-bold py-4 rounded-md">
-          Checkout
-        </button>
-      </div>
+      {cart.length >= 1 && (
+        <div className="px-6">
+          <button className="bg-custom-primary w-full text-white font-bold py-4 rounded-md">
+            Checkout
+          </button>
+        </div>
+      )}
     </div>
   );
 };

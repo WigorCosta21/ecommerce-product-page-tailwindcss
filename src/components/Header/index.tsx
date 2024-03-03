@@ -4,8 +4,11 @@ import Avatar from "../../assets/images/image-avatar.png";
 import IconCart from "../../assets/images/icon-cart.svg";
 import Logo from "../../assets/images/logo.svg";
 import { Cart } from "../Cart";
+import { useCart } from "../../hooks/useCart";
 
 export const Header = () => {
+  const { isOpenCart, handleCloseCart, handleOpenCart } = useCart();
+
   return (
     <header className="relative max-w-5xl w-full mx-auto">
       <div className="w-full flex justify-between items-center pt-10 pb-12 border-b border-custom-gray-light/20">
@@ -16,7 +19,7 @@ export const Header = () => {
           <Menu />
         </div>
         <div className="flex items-center gap-10">
-          <button>
+          <button onClick={isOpenCart ? handleCloseCart : handleOpenCart}>
             <img
               src={IconCart}
               alt="Ícone do carrinho de compras"
@@ -32,7 +35,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <Cart />
+      {isOpenCart && <Cart />}
     </header>
   );
 };

@@ -18,6 +18,9 @@ export interface ICartContext {
   quantity: number;
   handleIncrement: () => void;
   handleDecrement: () => void;
+  isOpenCart: boolean;
+  handleOpenCart: () => void;
+  handleCloseCart: () => void;
 }
 
 export const CartContext = createContext({} as ICartContext);
@@ -30,6 +33,7 @@ export const CartProvider = ({ children }: ICartProvider) => {
   const [cart, setCart] = useState<ICartProps[]>([]);
   const [quantity, setQuantity] = useState(0);
   const [total, setTotal] = useState("");
+  const [isOpenCart, setIsOpenCart] = useState(false);
 
   const totalCart = (items: ICartProps[]) => {
     let myCart = items;
@@ -80,6 +84,10 @@ export const CartProvider = ({ children }: ICartProvider) => {
     }
   };
 
+  const handleOpenCart = () => setIsOpenCart(true);
+
+  const handleCloseCart = () => setIsOpenCart(false);
+
   return (
     <CartContext.Provider
       value={{
@@ -90,6 +98,9 @@ export const CartProvider = ({ children }: ICartProvider) => {
         handleDecrement,
         handleIncrement,
         total,
+        isOpenCart,
+        handleCloseCart,
+        handleOpenCart,
       }}
     >
       {children}
