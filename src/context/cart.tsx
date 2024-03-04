@@ -74,6 +74,7 @@ export const CartProvider = ({ children }: ICartProvider) => {
       setCart([...cart, data]);
       totalCart([...cart, data]);
       setQuantity(0);
+      handleOpenCart();
     }
   };
 

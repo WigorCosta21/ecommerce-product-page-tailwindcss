@@ -4,22 +4,13 @@ import IconPlus from "../../assets/images/icon-plus.svg";
 import { useCart } from "../../hooks/useCart";
 
 export const ProductAction = ({ data }: IProductData) => {
-  const {
-    addToCart,
-    quantity,
-    handleDecrement,
-    handleIncrement,
-    handleOpenCart,
-  } = useCart();
+  const { addToCart, quantity, handleDecrement, handleIncrement } = useCart();
 
-  const handleAddToCart = (item: IProduct) => {
-    addToCart(item);
-    handleOpenCart();
-  };
+  const handleAddToCart = (item: IProduct) => addToCart(item);
 
   return (
-    <div className="flex gap-6 items-center mt-10">
-      <div className="bg-custom-gray-light/10 flex justify-around rounded-md items-center p-4 w-1/3">
+    <div className="flex flex-col gap-6 items-center lg:flex-row md:mt-7">
+      <div className="w-full bg-custom-gray-light/10 flex justify-around rounded-md items-center p-4 lg:w-1/3">
         <button onClick={handleDecrement}>
           <img
             src={IconMinus}
@@ -38,7 +29,7 @@ export const ProductAction = ({ data }: IProductData) => {
       </div>
       <div className="w-full">
         <button
-          className="w-2/3 bg-custom-primary flex items-center justify-center text-white gap-5 rounded-md p-4 font-bold"
+          className=" w-full bg-custom-primary flex items-center justify-center text-white gap-5 rounded-md p-4 font-bold transition-all hover:opacity-40 lg:w-2/3"
           title="Clique para adicionar o produto ao carrinho"
           onClick={() => handleAddToCart(data)}
         >

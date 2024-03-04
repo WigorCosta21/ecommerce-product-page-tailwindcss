@@ -8,7 +8,7 @@ export const ProductImage = ({ data }: IProductData) => {
   };
 
   return (
-    <div>
+    <div className="pl-4">
       <div>
         <img
           className="rounded-md"
@@ -16,7 +16,7 @@ export const ProductImage = ({ data }: IProductData) => {
           alt={`Produto ${selectedImage + 1}`}
         />
       </div>
-      <div className="flex items-center gap-7 mt-7">
+      <div className="hidden items-center gap-7 mt-7 md:flex">
         {data.thumbnail.map((item, index) => (
           <div
             key={index}

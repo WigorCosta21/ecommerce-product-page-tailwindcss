@@ -7,7 +7,7 @@ export const Cart = () => {
   const { cart, total, handleDeleteCart } = useCart();
 
   return (
-    <div className="absolute top-28 right-0 w-80 min-h-64 px-6 py-4 bg-white shadow-lg rounded-md flex flex-col ">
+    <div className="absolute top-44 mx-auto w-11/12 min-h-80 px-6 py-4 bg-white shadow-lg rounded-md flex flex-col md:w-80 md:top-28 md:right-0 md:min-h-64 z-20">
       <div className="border-b border-gray-400/85">
         <h3 className="font-bold mb-8">Cart</h3>
       </div>
@@ -19,7 +19,10 @@ export const Cart = () => {
       )}
 
       {cart.map((item) => (
-        <div key={item.id} className="flex items-center gap-4 mt-7">
+        <div
+          key={item.id}
+          className="w-full justify-between flex items-center gap-4 mt-7"
+        >
           <div>
             <img
               className="w-12 h-12 rounded-md"
@@ -28,11 +31,11 @@ export const Cart = () => {
             />
           </div>
           <div>
-            <h3 className="text-custom-text-primary/70 text-xs">
+            <h3 className="text-custom-text-primary/70 md:text-xs">
               {item.title}
             </h3>
             <div>
-              <p className="text-custom-text-primary/70 text-xs mt-1">
+              <p className="text-custom-text-primary/70 mt-1 md:text-xs">
                 {formatPrice(item.price)} x {item.amount}{" "}
                 <span className="text-custom-text-primary font-bold">
                   {total}
