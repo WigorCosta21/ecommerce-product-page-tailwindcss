@@ -2,11 +2,16 @@ import { useState } from "react";
 
 import IconMenu from "../../assets/images/icon-menu.svg";
 import IconCloseMenu from "../../assets/images/icon-close.svg";
+import { useCart } from "../../hooks/useCart";
 
 export const Menu = () => {
+  const { handleCloseCart } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleOpenMenu = () => setIsMenuOpen(true);
+  const handleOpenMenu = () => {
+    setIsMenuOpen(true);
+    handleCloseCart();
+  };
 
   const handleCloseMenu = () => setIsMenuOpen(false);
 
@@ -41,7 +46,7 @@ export const Menu = () => {
       </button>
 
       {isMenuOpen && (
-        <div className="max-w-60 w-full  h-screen absolute top-0 left-0 px-7 pt-6 block z-10 bg-white md:hidden">
+        <div className="max-w-60 w-full  h-screen absolute top-0 left-0 px-7 pt-6 block z-20 bg-white md:hidden">
           <button onClick={handleCloseMenu} className="mb-14">
             <img src={IconCloseMenu} alt="Ícone para fechar o menu" />
           </button>

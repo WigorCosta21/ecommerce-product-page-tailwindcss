@@ -13,7 +13,7 @@ export const ProductInfo = ({ data }: IProductData) => {
         {data.description}
       </p>
       <div className="w-full flex justify-between mb-6 md:flex-col">
-        <div className="flex items-center">
+        <div className="w-32 justify-between flex items-center ">
           <p>{formatPrice(data.currentPrice)}</p>
           <span className="w-12 bg-custom-pale-primary rounded-md text-custom-primary font-bold text-sm text-center">
             50%

@@ -7,7 +7,7 @@ export const Cart = () => {
   const { cart, total, handleDeleteCart } = useCart();
 
   return (
-    <div className="absolute top-44 mx-auto w-11/12 min-h-80 px-6 py-4 bg-white shadow-lg rounded-md flex flex-col md:w-80 md:top-28 md:right-0 md:min-h-64 z-20">
+    <div className="absolute top-44 mx-auto w-11/12 min-h-80 px-6 py-4 bg-white shadow-lg rounded-md flex flex-col md:w-80 md:top-28 md:right-0 md:min-h-64 z-10">
       <div className="border-b border-gray-400/85">
         <h3 className="font-bold mb-8">Cart</h3>
       </div>
