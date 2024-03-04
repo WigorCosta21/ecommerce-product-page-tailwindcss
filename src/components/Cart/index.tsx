@@ -36,10 +36,10 @@ export const Cart = () => {
             </h3>
             <div>
               <p className="text-custom-text-primary/70 mt-1 md:text-xs">
-                {formatPrice(item.price)} x {item.amount}{" "}
-                <span className="text-custom-text-primary font-bold">
+                {formatPrice(item.price)} x {item.amount}
+                <span className="ml-2 text-custom-text-primary font-bold">
                   {total}
-                </span>{" "}
+                </span>
               </p>
             </div>
           </div>

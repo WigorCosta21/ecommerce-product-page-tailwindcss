@@ -37,9 +37,8 @@ export const CartProvider = ({ children }: ICartProvider) => {
   const [isOpenCart, setIsOpenCart] = useState(false);
 
   const totalCart = (items: ICartProps[]) => {
-    let myCart = items;
-    let result = myCart.reduce((acc, item) => {
-      return acc + item.total;
+    let result = items.reduce((acc, item) => {
+      return acc + item.amount * item.price;
     }, 0);
 
     setTotal(formatPrice(result));
